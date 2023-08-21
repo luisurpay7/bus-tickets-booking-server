@@ -38,7 +38,12 @@ functions:
       - httpApi:
           path: /buses
           method: post
-
+  getBuses:
+    handler: src/getBuses.getBuses
+    events:
+      - httpApi:
+          path: /buses
+          method: get
 resources:
   Resources:
     UserTable:
