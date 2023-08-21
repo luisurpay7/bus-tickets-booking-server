@@ -32,6 +32,13 @@ functions:
       - httpApi:
           path: /users
           method: get
+  addBus:
+    handler: src/addBus.addBus
+    events:
+      - httpApi:
+          path: /buses
+          method: post
+
 resources:
   Resources:
     UserTable:
