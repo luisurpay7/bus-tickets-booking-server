@@ -11,7 +11,7 @@ const addUser = async (event) => {
     const newUser = {id, name, createdAt};
 
     await documentClient.put({
-      TableName : "User",
+      TableName : 'UserTable',
       Item: newUser,
     }).promise();
 

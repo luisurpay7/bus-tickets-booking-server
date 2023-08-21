@@ -10,7 +10,8 @@ provider:
       Action:
         - dynamodb:*
       Resource:
-        - arn:aws:dynamodb:sa-east-1:629386865707:table/User
+        - { "Fn::GetAtt": ["UserTable", "Arn"] }
+        - { "Fn::GetAtt": ["BusTable", "Arn"] }
 
 functions:
   api:
@@ -33,10 +34,21 @@ functions:
           method: get
 resources:
   Resources:
-    TaskTable:
+    UserTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: User
+        TableName: UserTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+    BusTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: BusTable
         BillingMode: PAY_PER_REQUEST
         AttributeDefinitions:
           - AttributeName: id
