@@ -25,7 +25,12 @@ functions:
       - httpApi:
           path: /users
           method: post
-
+  getUsers:
+    handler: src/getUsers.getUsers
+    events:
+      - httpApi:
+          path: /users
+          method: get
 resources:
   Resources:
     TaskTable:
