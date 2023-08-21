@@ -19,6 +19,12 @@ functions:
       - httpApi:
           path: /
           method: get
+  addUser:
+    handler: src/addUser.addUser
+    events:
+      - httpApi:
+          path: /users
+          method: post
 
 resources:
   Resources:
