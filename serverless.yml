@@ -44,6 +44,13 @@ functions:
       - httpApi:
           path: /buses
           method: get
+  updateBooking:
+    handler: src/updateBooking.updateBooking
+    events:
+      - httpApi:
+          path: /bookings
+          method: put
+
 resources:
   Resources:
     UserTable:

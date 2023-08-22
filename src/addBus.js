@@ -4,12 +4,12 @@ const { v4: uuidv4 } = require('uuid');
 const addBus = async (event) => {
   try {
     const documentClient = new DynamoDB.DocumentClient();
-    const { name, schedule } = JSON.parse(event.body);
+    const { name, schedule, capacity } = JSON.parse(event.body);
     const books = []
     const createdAt = (new Date()).toString();
     const id = uuidv4();
 
-    const newBus = {id, name, schedule, books, createdAt};
+    const newBus = {id, name, schedule, capacity, books, createdAt};
 
     await documentClient.put({
       TableName : "BusTable",
