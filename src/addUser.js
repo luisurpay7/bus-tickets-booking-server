@@ -16,8 +16,11 @@ const addUser = async (event) => {
     }).promise();
 
     return {
-      status: 200,
-      data: newUser
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser)
     }
 
   } catch (error) {

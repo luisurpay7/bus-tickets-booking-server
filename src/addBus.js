@@ -17,8 +17,11 @@ const addBus = async (event) => {
     }).promise();
 
     return {
-      status: 200,
-      data: newBus
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBus)
     }
 
   } catch (error) {

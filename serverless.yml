@@ -5,6 +5,8 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: sa-east-1
+  httpApi:
+    cors: true
   iamRoleStatements:
     - Effect: Allow
       Action:

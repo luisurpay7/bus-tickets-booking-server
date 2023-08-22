@@ -7,9 +7,12 @@ const getUsers = async (_event) => {
     const users = result.Items;
 
     return {
-      status: 200,
-      data: users
-    }
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(users),
+    };
 
   } catch (error) {
     console.log(error)

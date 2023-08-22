@@ -7,8 +7,11 @@ const getBuses = async (_event) => {
     const buses = result.Items;
 
     return {
-      status: 200,
-      data: buses
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(buses)
     }
 
   } catch (error) {

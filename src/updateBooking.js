@@ -30,8 +30,13 @@ const updateBooking = async (event) => {
     }
 
     return {
-      status: 200,
-      data: 'OK'
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        message: "Correct"
+      }
     }
 
   } catch (error) {
