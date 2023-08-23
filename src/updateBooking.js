@@ -34,9 +34,9 @@ const updateBooking = async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         message: "Correct"
-      }
+      })
     }
 
   } catch (error) {
